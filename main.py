@@ -1,28 +1,38 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QComboBox, QVBoxLayout, QWidget
-from PyQt5.QtGui import QFont, QPixmap
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QIcon
+from ui import Ui_MainWindow
+from currency_converter import CurrencyConverter
 
-class ApplicationConverter(QMainWindow):
+
+class CurrencyConv(QtWidgets.QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(CurrencyConv, self).__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.init_UI()
+    
+    def init_UI(self):
+        self.setWindowTitle('Конвертер валют') 
+        self.setWindowIcon(QIcon('exchanging.png'))
+        self.ui.input_currency.setPlaceholderText('З валюти:')
+        self.ui.input_amount.setPlaceholderText('В мене є:')
+        self.ui.output_currency.setPlaceholderText('В валюту:')
+        self.ui.output_amount.setPlaceholderText('Я отримаю:')
+        self.ui.pushButton.clicked.connect(self.converter)
 
-        self.setWindowTitle("Converter")
-        self.setGeometry(100, 100, 500, 500)
-        self.central_widget = QWidget()
-        self.setCentralWidget(self.central_widget)
+    def converter(self):
+        c = CurrencyConverter()
+        input_currency = self.ui.input_currency.text()
+        output_currency = self.ui.output_currency.text()
+        input_amount = int(self.ui.input_amount.text())     
+        output_amount = round(c.convert(input_amount, '%s' % (input_currency), '%s' % (output_currency)), 2)
+        self.ui.output_amount.setText(str(output_amount))
 
-        self.layout = QVBoxLayout()
-        self.central_widget.setLayout(self.layout)
+app = QtWidgets.QApplication([])
+application = CurrencyConv()
+application.show()
+ 
+sys.exit(app.exec())
 
-        self.central_widget.setStyleSheet("backgroubd-color: #ffffff")
 
-        self.label_converter = QLabel("З валюти", self)
-        self.layout.addWidget(self.label_converter)
-
-        self.converter_combo = QComboBox(self)
-        self.converter_combo.addItem(["Долар", "Євро", "Гривня",])
-
-app = QApplication(sys.argv)
-window = ApplicationConverter()
-window.show()
-sys.exit(app.exec_())
