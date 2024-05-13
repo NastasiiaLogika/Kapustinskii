@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(480, 755)
         MainWindow.setStyleSheet("background-color:")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("background-color: #22222e;")
+        self.centralwidget.setStyleSheet("background-color: #000000;")
         self.centralwidget.setObjectName("centralwidget")
         self.input_amount = QtWidgets.QLineEdit(self.centralwidget)
         self.input_amount.setGeometry(QtCore.QRect(50, 400, 380, 60))
@@ -26,8 +26,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.input_amount.setFont(font)
-        self.input_amount.setStyleSheet("background-color: #22222e;\n"
-"border: 2px solid #f66867;\n"
+        self.input_amount.setStyleSheet("background-color: #000000;\n"
+"border: 2px solid #c24342;\n"
 "border-radius: 30;\n"
 "color: white;")
         self.input_amount.setText("")
@@ -41,8 +41,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.output_amount.setFont(font)
-        self.output_amount.setStyleSheet("background-color: #22222e;\n"
-"border: 2px solid #f66867;\n"
+        self.output_amount.setStyleSheet("background-color: #000000;\n"
+"border: 2px solid #c24342;\n"
 "border-radius: 30;\n"
 "color: white;")
         self.output_amount.setText("")
@@ -58,17 +58,17 @@ class Ui_MainWindow(object):
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("QPushButton {\n"
 "    color: white;\n"
-"    background-color: #fb5b5d;\n"
+"    background-color: #c24342;\n"
 "    border-radius: 30;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: #fa4244;\n"
+"    background-color: #c24342;\n"
 "}")
         self.pushButton.setObjectName("pushButton")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 480, 271))
-        self.frame.setStyleSheet("background-color: #fb5b5d")
+        self.frame.setStyleSheet("background-color: #c24342")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -96,8 +96,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.input_currency.setFont(font)
-        self.input_currency.setStyleSheet("background-color: #22222e;\n"
-"border: 2px solid #f66867;\n"
+        self.input_currency.setStyleSheet("background-color: #000000;\n"
+"border: 2px solid #c24342;\n"
 "border-radius: 30;\n"
 "color: white;")
         self.input_currency.setText("")
@@ -111,8 +111,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.output_currency.setFont(font)
-        self.output_currency.setStyleSheet("background-color: #22222e;\n"
-"border: 2px solid #f66867;\n"
+        self.output_currency.setStyleSheet("background-color: #000000;\n"
+"border: 2px solid #c24342;\n"
 "border-radius: 30;\n"
 "color: white;")
         self.output_currency.setText("")
@@ -126,8 +126,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "КОНВЕРТИРУЙ"))
-        self.label_2.setText(_translate("MainWindow", "КОНВЕРТЕР ВАЛЮТ"))
+        self.pushButton.setText(_translate("MainWindow", "КОНВЕРТУЙ"))
+        self.label_2.setText(_translate("MainWindow", "КОНВЕРТОР ВАЛЮТ"))
         self.label_2.setStyleSheet("font-size: 30px;\n")
 
 

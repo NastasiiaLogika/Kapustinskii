@@ -25,8 +25,15 @@ class CurrencyConv(QtWidgets.QMainWindow):
         c = CurrencyConverter()
         input_currency = self.ui.input_currency.text()
         output_currency = self.ui.output_currency.text()
-        input_amount = int(self.ui.input_amount.text())     
-        output_amount = round(c.convert(input_amount, '%s' % (input_currency), '%s' % (output_currency)), 2)
+        input_amount = int(self.ui.input_amount.text())
+        if output_currency == "UAH" and input_currency == "USD":
+            output_amount = round((input_amount*39.54), 2)
+        elif output_currency == "UAH" and input_currency == "PLN":
+            output_amount = round((input_amount*9.90), 2)
+        elif output_currency == "UAH" and input_currency == "EUR":
+            output_amount = round((input_amount*42.66), 2)
+        else:
+            output_amount = round(c.convert(input_amount, '%s' % (input_currency), '%s' % (output_currency)), 2)
         self.ui.output_amount.setText(str(output_amount))
 
 app = QtWidgets.QApplication([])
